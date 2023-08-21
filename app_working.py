@@ -1,4 +1,5 @@
 import streamlit as st
+from dotenv import load_dotenv
 import os
 import pandas as pd
 from langchain.agents import create_csv_agent
@@ -20,9 +21,6 @@ import re
 
 # Layout as wide and adding custom title
 st.set_page_config(page_title = "LegalGPT", layout = "wide")
-
-os.environ["OPENAI_API_KEY"] = "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"
-# openai_api_key = "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"
 
 def get_pdf_text(pdf_docs):
     text = ""
