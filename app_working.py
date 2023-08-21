@@ -21,7 +21,7 @@ import re
 # Layout as wide and adding custom title
 st.set_page_config(page_title = "LegalGPT", layout = "wide")
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 # openai_api_key = "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"
 
 def get_pdf_text(pdf_docs):
