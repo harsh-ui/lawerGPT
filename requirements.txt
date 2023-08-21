@@ -7,3 +7,4 @@ matplotlib
 plotly
 tiktoken
 faiss-cpu
+dotenv-python
