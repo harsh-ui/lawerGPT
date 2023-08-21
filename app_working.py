@@ -22,6 +22,7 @@ import re
 st.set_page_config(page_title = "LegalGPT", layout = "wide")
 
 os.environ["OPENAI_API_KEY"] = "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"
+openai_api_key = "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"
 
 def get_pdf_text(pdf_docs):
     text = ""
