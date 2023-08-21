@@ -22,6 +22,8 @@ import re
 # Layout as wide and adding custom title
 st.set_page_config(page_title = "LegalGPT", layout = "wide")
 
+st.write("Secret Key", st.secrets["openai_secret_key"])
+
 os.environ["openai_secret_key"] == st.secrets["openai_secret_key"]
 
 def get_pdf_text(pdf_docs):
