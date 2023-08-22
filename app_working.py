@@ -22,7 +22,12 @@ import re
 # Layout as wide and adding custom title
 st.set_page_config(page_title = "LegalGPT", layout = "wide")
 
-os.environ["OPENAI_API_KEY"] = st.secrets["openai_secret_key"]
+user_api_key = st.sidebar.text_input(
+    label="#### Your OpenAI API key 👇",
+    placeholder="Paste your openAI API key, sk-",
+    type="password")
+
+# os.environ["OPENAI_API_KEY"] = st.secrets["openai_secret_key"]
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -70,7 +75,7 @@ def get_completion(prompt, model="gpt-3.5-turbo-16k"):
 #     return agent
 
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI()
+    llm = ChatOpenAI(openai_api_key = user_api_key)
     # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
 
     memory = ConversationBufferMemory(
@@ -145,7 +150,7 @@ def main():
             if st.button("Summarize"):
                query = f"""{prompt}"""
                # completion llm
-               llm = ChatOpenAI(
+               llm = ChatOpenAI(openai_api_key = user_api_key
                                 model_name = 'gpt-4', 
                                 temperature = 0.0)
                qa = RetrievalQA.from_chain_type(
