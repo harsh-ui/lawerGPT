@@ -27,7 +27,7 @@ user_api_key = st.sidebar.text_input(
     placeholder="Paste your openAI API key, sk-",
     type="password")
 
-# os.environ["OPENAI_API_KEY"] = st.secrets["openai_secret_key"]
+os.environ["OPENAI_API_KEY"] = user_api_key
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -49,7 +49,7 @@ def get_text_chunks(text):
 
 
 def get_vectorstore(text_chunks):
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(openai_api_key = user_api_key)
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 
