@@ -150,7 +150,7 @@ def main():
             if st.button("Summarize"):
                query = f"""{prompt}"""
                # completion llm
-               llm = ChatOpenAI(openai_api_key = user_api_key
+               llm = ChatOpenAI(openai_api_key = user_api_key,
                                 model_name = 'gpt-4', 
                                 temperature = 0.0)
                qa = RetrievalQA.from_chain_type(
