@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'lawerGPT'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_74DDBCF02EC04A0C8696675FD83E3848 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B21777B7D52E42099AE1194C885088C3 }}
